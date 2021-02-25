@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel = "stylesheet" href = "../static/testerStyle.css">
+<link rel = "stylesheet" href = "../static/Menu.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+</style>
+</head>
+<body id = "body" style="background-image: url('../static/home_background3.jpg'); color: black;">
+    <!--<canvas id = "myChart" width = "400" height = "400"></canvas>
+   <script src = "chart.js"></script> -->
+
+
+
+<div class="navbar" style = "background-color: #333;">
+<div style = "margin: 0px 0px 5px 10px;">
+    <h1 style = "color: #f2f2f2; text-shadow: 0.3px 0.3px #333;"> Oxy Analytics</h1>
+    <p style = "color: #f2f2f2; text-shadow: 0.3px 0.3px #333;"><b>Occidental College's student-run sports analysis service</b></p>
+</div>
+
+  <a href="/">Home</a>
+  <div class="dropdown">
+    <button class="dropbtn">Analytics 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <div class="header">
+        <h2>Analytics Menu</h2>
+      </div>   
+      <div class="row">
+        <div class="column">
+          <h3 class = "menuSection" onClick = "window.location.href = '../analysis-season/playerSelection';">Data Selection</a></h3>
+          <a href = "../analysis-season/teamBreakdown"> Team </a>
+          <a href = "../analysis-home/playerSelection">Player Selection</a>
+        </div>
+        <div class="column">
+          <h3 class = "menuSection">Analysis Selection</h3>
+          <a href="../analysis-season">Seasonal Analysis</a>
+          <a href="../analysis-game">per Game Analysis</a>
+          <a href="../analysis-season/teamVisuals">Visual Analysis</a>
+        </div>
+        <div class="column">
+          <h3 class = "menuSection">Reference Material</h3>
+          <a href="../analysis-home">Analytics Explained</a>
+          <a href="../analysis-home/metric_index">Performance Metric Index</a>
+          <a href="#">External Resources</a>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <a href="../about">About</a>
+  </div>
+<h1 id = "oxy_title" align = "center" style="text-decoration: underline; text-shadow: 2px 2px #333; color: #f2f2f2;"><i>Player Selection: Occidental College 2019-2020 Roster </i></h1>
+<button onclick="topFunction()" id="myBtn" title="Go to top" style = "color: #333; background-color: #b3b3b3;"><i class="arrow up"></i> Top</button>
+<!--
+<div class="wrap">
+   <div class="search">
+      <input type="text" class="searchTerm" placeholder="Search for a player...">
+      <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+   </div>
+</div>
+
+<div class="vertical-menu" align = "left"  style="float: left; margin: 3px 12px 3px 10px;" >
+  <a href="#" class="active">Player Selection</a>
+  <a href = "analysis-season"> Team </a>
+  <a href="../analysis-season/ben_harding">Ben Harding - 0</a>
+  <a href="#">Jacob Gitin - 00</a>
+  <a href="#">Scott Drazan -01</a>
+  <a href="#">Riley Mccabe - 02</a>
+  <a href="#">Spencer Shearer - 03</a>
+  <a href="#">Ryan Wilson - 04</a>
+  <a href="#">David Paine - 05</a>
+  <a href="#">Nicolas Eble - 06</a>
+  <a href="#">Matthew Teplitz - 07</a>
+  <a href="#">Ben Simon - 08</a>
+  <a href="#">Marcus Blumen. - 09</a>
+  <a href="#">Jasper Brannon - 10</a>
+  <a href="#">Matthew Anzal. - 11</a>
+  <a href="#">Sean Kim - 12</a>
+  <a href="#">Jack Meeker - 13</a>
+  <a href="#">Adrian Paredes - 14</a>
+  <a href="#">Logan Myers - 16</a>
+  <a href="#">Tyler Wray - 17</a>
+  <a href="#">Jake Foster - 18</a>
+  <a href="#">Joey Schwartz - 19</a>
+  <a href="#">Jazz Henry - 20</a>
+  <a href="#">Teagan Jarvis - 21</a>
+  <a href="#">Tye Hernandez - 22</a>
+  <a href="#">Miles Robertson - 23</a>
+  <a href="#">Caleb Jordening - 24</a>
+  <a href="#">Neython Streitz - 25</a>
+  <a href="#">Ben Tucker - 27</a>
+  <a href="#">Luke Haas - 30</a>
+  <a href="#">Eric Dacosta - 31</a>
+</div>
+
+
+<button class = "button" align = "left"  style=" float: left; margin: 340px 0px 0 -210px;" onClick = "window.location.href = '/analysis-game/team-game1-playerBreakdown';">Player Breakdown</button>
+<button class = "button" align = "left"  style=" float: left; margin: 280px 0px 0 -210px;">Visual Analysis</button>
+<button class = "button" align = "left"  style=" float: left; margin: 220px 0px 0 -210px;">Text Analysis</button>
+<button class = "button" align = "left"  style=" float: left; margin: 400px 0px 0 -210px;"  onclick="window.location.href= '../analysis-home';">Analytics Explained</button>
+
+
+<img src="../static/ShotPerc.png" alt="Shot % Chart" width="750" height="600" id = "shotperc" style="float: center; margin: 3px 12px -600px 200px;">
+
+
+<div class="card" style = "margin: 3px 12px 200px 1210px;">
+  <div class="container">
+    <h3 align = "center">Game Stats</h3>
+    <h4 align = "center"> Actual Result: 2 - 1 (Win)</h4>
+    <h4 align = "center"> Expected Result: 2 - 2 (Draw)</h4>
+    <h3 align = "center"></h3> 
+        <p><b>aG: 2</b></p>
+        <p><b>OppaG: 1</b></p>
+        <p><b>xG: 2</b></p>
+        <p><b>OppxG: 2</b></p>
+        <p><b>aGD: +1</b></p>
+        <p><b>xGD: 0</b></p>
+        <p><b>aP: 3</b></p>
+        <p><b>xP: 1</b><p>  
+  </div>
+</div>
+
+<h5 id = "perctitle" align = "center" style = "margin: -20px 0px 0px 0px; text-decoration: underline; text-shadow: 2px 2px #333; color: #f2f2f2;"> Shot Location Tracker (% of total shots taken in different field locations)</h5>
+-->
+
+<body>
+<div id = "playerSelect">
+<main class="grid">
+  <article style = "background-color:rgb(255, 117, 26);">
+    <img src="../static/rosterShot.png"  alt=" Profile" style = "width: 100%; height: auto; float: center;">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Ben Harding - GK, #00</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-benHarding';">Ben's Stats</button>
+    </div>
+  </article>
+
+   <article style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-59.jpg"  alt="Adrian Paredes Profile" style = "float: center">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Jacob Gitin - GK #0</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-jacobGitin';">Jacob's Stats Page</button>
+    </div>
+  </article>
+  
+    <article style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-41.jpg"  alt="Adrian Paredes Profile" style = "float: center">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Scott Drazan - GK, #01</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-scottDrazan';">Scott's Stats Page</button>
+    </div>
+  </article>
+
+  <article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-19.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Riley Mccabe - D, #02</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-rileyMccabe';">Riley's Stats Page</button>
+    </div>
+  </article>
+
+  <article style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-23.jpg"  alt="Adrian Paredes Profile" style = "float: center">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Spencer Shearer - M, #03</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-spencerShearer';">Spencer's Stats</button>
+    </div>
+  </article>
+  
+   <article style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-37.jpg"  alt="Adrian Paredes Profile" style = "float: center">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Ryan Wilson - M, #04</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-ryanWilson';">Ryan's Stats Page</button>
+    </div>
+  </article>
+  
+    <article style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-43.jpg"  alt="Adrian Paredes Profile" style = "float: center">
+    <div class="text">
+      <h3 style = "text-decoration: underline">David Paine - D, #05</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-davidPaine';">David's Stats Page</button>
+    </div>
+  </article>
+
+  <article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-45.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Nicolas Eble - M, #06</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-nicEble';">Nicolas's Stats Page</button>
+    </div>
+  </article>
+  
+  <article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-55.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Matthew Teplitz - F, #07</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-mattTeplitz';">Matthew's Stats Page</button>
+    </div>
+  </article>
+
+  <article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-32.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Ben Simon - M, #08</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-benSimon';">Ben's Stats Page</button>
+    </div>
+  </article>
+  
+  <article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-15.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Marcus Blumenfeld - F, #09</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-marcBlumenfeld';">Marcus's Stats Page</button>
+    </div>
+  </article>
+  
+  <article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-5.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Jasper Brannon - M, #10</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-jasperBrannon';">Jasper's Stats Page</button>
+    </div>
+  </article>
+  
+  <article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-26.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Matthew Anzalone - D, #11</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-mattAnzalone';">Matthew's Stats Page</button>
+    </div>
+  </article>
+    
+  <article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-7.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Sean Kim - F, #12</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-seanKim';">Sean's Stats Page</button>
+    </div>
+  </article>
+
+<article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-11.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Jack Meeker - D, #13</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-jackMeeker';">Jack's Stats Page</button>
+    </div>
+  </article>
+
+  
+  <article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-57.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Adrian Paredes - M, #14</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-adrianParedes';">Adrian's Stats Page</button>
+    </div>
+  </article>
+    
+  <article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-53.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Logan Myers - M, #16</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-loganMyers';">Logan's Stats Page</button>
+    </div>
+  </article>
+
+<article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-39.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Tyler Wray - F, #17</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-tylerWray';">Tyler's Stats Page</button>
+    </div>
+  </article>
+
+  
+  <article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-27.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Jake Foster - M, #18</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-jakeFoster';">Jake's Stats Page</button>
+    </div>
+  </article>
+    
+  <article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-30.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Joey Schwartz - M, #19</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-joeySchwartz';">Joey's Stats Page</button>
+    </div>
+  </article>
+
+<article  style = "background-color:rgb(255, 117, 26);">
+    <img src="../static/rosterShot.png"  alt=" Profile" style = "width: 100%; height: auto; float: center;">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Jazz Henry - F, #20</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-jazzHenry';">Jazz's Stats Page</button>
+    </div>
+  </article>
+
+  
+  <article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-17.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Teagan Jarvis - F, #21</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-teaganJarvis';">Teagan's Stats Page</button>
+    </div>
+  </article>
+    
+  <article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-49.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Tye Hernandez - M, #22</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-tyeHernandez';">Tye's Stats Page</button>
+    </div>
+  </article>
+
+<article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-4.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Miles Robertson - D, #23</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-milesRobertson';">Miles's Stats Page</button>
+    </div>
+  </article>
+
+  
+  <article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-60.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Caleb Jordening - F, #24</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-calebJorden';">Caleb's Stats Page</button>
+    </div>
+  </article>
+    
+  <article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-21.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Neython Streitz - D, #25</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-neythonStreitz';">Neython's Stats Page</button>
+    </div>
+  </article>
+
+<article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-13.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Ben Tucker - D, #27</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-benTucker';">Ben's Stats Page</button>
+    </div>
+  </article>
+
+  <article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-47.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Luke Haas - GK, #30</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-lukeHaas';">Luke's Stats Page</button>
+    </div>
+  </article>
+
+<article  style = "background-color:rgb(255, 117, 26);">
+    <img src="https://www.oxyathletics.com/sports/msoc/2019-20/photos/oxy-msoc-headshots-35.jpg" style = "float: center" alt="Adrian Paredes Profile">
+    <div class="text">
+      <h3 style = "text-decoration: underline">Eric Dacosta - D, #31</h3>
+      <button onclick = "window.location.href = '../analysis-home/playerBreakdown-ericDacosta';">Eric's Stats Page</button>
+    </div>
+  </article>
+</main>
+</div>
+<h5 align = "right" style = "color: #f2f2f2;">roster images courtesy of oxyathletics.com</h5>
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+</body>
+</html> 
