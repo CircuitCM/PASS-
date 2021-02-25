@@ -1,0 +1,18 @@
+,,,,,,,,,,
+Location,Shot_outcome,Shot_place,Situation,Fast Break,is_goal,Body Part,Event_team,Opponent,Side,assist_method
+3 = center of the box,1 = on target,1 =  a bit too high,1 = open play,0 = no,0 = no,1 = right foot,Attacking side,Defending side,1 = Home,0 = None
+4 = left wing,2 = off target,2 = blocked (doesn't reach the goal),2 = set piece,1 = yes,1 = yes,2 = left foot,,,2 = Away,1 = pass
+5 = right wing,3 = blocked,3 = bottom left corner,3 = corner,,,3 = head,,,,2 = cross
+6 = difficult angle and long range,4 = woodwork,4 = bottom right corner,4 = free kick,,,,,,,3 = headed pass
+7 = difficult angle on the left,,5 = center of the goal,,,,,,,,4 = through ball
+8 = difficult angle on the right,,6 = high & wide,,,,,,,,5 = throw in
+9 = left side of the box,,7 = hits the woodwork,,,,,,,,
+10 = left side of the 6-yd box,,8 = misses to the left,,,,,,,,
+11 = right side of the box,,9 = misses to the right,,,,,,,,
+12 = right side of the 6-yd box,,10 = too high,,,,,,,,
+13 = very close range (point blank),,11 = top center of the goal,,,,,,,,
+14 = penalty spot,,12 = top left corner,,,,,,,,
+15 = outside the box,,13 = top right corner,,,,,,,,
+17 = 25-yds+,,,,,,,,,,
+18 = 30-yds+,,,,,,,,,,
+19 = not recorded,,,,,,,,,,
