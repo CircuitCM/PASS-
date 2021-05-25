@@ -3,7 +3,7 @@ ESSENTIAL FILE CONTAINING ALL DATA PROCESSING FUNCTIONS
 
 '''
 # General Python Imports
-from RFCmodel import Models
+#from RFCmodel import Models
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
@@ -20,8 +20,7 @@ def cleanTrain(df1): # PARAM: pandas DataFrame
 
     #   Code Execution:
     #   1. Filter
-    train_filtered = df1[pd.notnull(df1['bodypart'])]
-    train = train_filtered
+    train = df1[pd.notnull(df1['bodypart'])]
 
     #   2. Drop
     trainOG = train.drop(['id_odsp', 'id_event', 'sort_order', 'text', 'player_out', 'player_in'], axis=1)  # 2a

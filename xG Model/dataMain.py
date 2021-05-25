@@ -15,7 +15,6 @@ import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from dataControl import cleanTrain, cleanTest, teamConv, split, rfc, teamSort
 from perfMeasures import goalPerf, playerSeasonEval, shotData, bodyPart, gamePerf, gamePerfPlayer, gk_defStats
-
 # Google Sheets API Imports
 import gspread
 import df2gspread as d2g
