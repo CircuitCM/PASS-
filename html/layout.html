@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Influenzer Test Site</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    </head>
+
+    <body>
+        <div class="ui container">
+        <h1>Menu</h1>
+        <div class="ui inverted menu">
+            <div id="home" class="header item" onclick="window.location.href='/';">Home</div>
+            <div id="login" class="item">Login</div>
+            <div class="ui dropdown item" tabindex="0">
+            Pointless Dropdown
+            <i class="dropdown icon"></i>
+            <div class="menu transition hidden" tabindex="-1">
+                <div class="item">Action</div>
+                <div class="item">Another Action</div>
+                <div class="item">Something else here</div>
+                <div class="divider"></div>
+                <div class="item">Separated Link</div>
+                <div class="divider"></div>
+                <div class="item">One more separated link</div>
+            </div>
+            </div>
+        </div>
+        {% block content %}
+        {% endblock %}
+        <script>
+            $(document).ready(function() {
+              $("#login").click(function() { 
+                window.location.href='login'
+                /*$.ajax({
+                  url: '/login',
+                  type: 'POST'
+                });
+                $('.ui.modal').modal('show');*/
+              });
+                /*$('.ui.modal').modal('show');*/
+              $("#testdata").click(function() {
+                $.ajax({
+                  url: '/new_results',
+                  type: 'GET'
+                });
+                window.location.href='new_results'
+              });
+            });
+        </script>
+        </div>
+    </body>
+</html>

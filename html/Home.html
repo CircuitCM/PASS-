@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<br>
+<h3>Test Table</h3>
+<table class="ui inverted blue selectable celled right aligned table">
+      <tbody>
+          {% for row in data.split('\r\n') %}
+          <tr>
+              {% for el in row.split(',') %}
+              <td>{{ el }}</td>
+              {% endfor %}
+          </tr>
+          {% endfor %}
+      </tbody>
+</table>
+<button type="button" id="testdata">Echo input</button>
+<br>
+<iframe src="https://docs.google.com/spreadsheets/d/1a6nel46Mk-wr8scatqAJJ9fdlUb8r2tZjVmwHd_BOCw/edit#gid=0" width="900" height="900"></iframe>
+<br>
+{% endblock %}
